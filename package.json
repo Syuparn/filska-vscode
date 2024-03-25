@@ -1,0 +1,25 @@
+{
+  "name": "filska-vscode",
+  "displayName": "filska-vscode",
+  "description": "VSCode syntax highlighter for Filska language in \"Strange Code\" (https://github.com/rkneusel9/StrangeCodeBook/blob/master/chapter_12/filska.py)",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "filska",
+      "aliases": ["Filska", "filska"],
+      "extensions": [".filska"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "filska",
+      "scopeName": "source.filska",
+      "path": "./syntaxes/filska.tmLanguage.json"
+    }]
+  }
+}
