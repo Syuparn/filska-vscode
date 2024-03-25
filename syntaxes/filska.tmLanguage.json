@@ -22,7 +22,7 @@
 			"begin": "\\{\\s*(\\w+)",
 			"beginCaptures": {
 				"1": {
-					"name": "variable.name"
+					"name": "variable.name.filska"
 				}
 			},
 			"end": "\\}",
@@ -39,6 +39,9 @@
 				},
 				{
 					"include": "#comments"
+				},
+				{
+					"include": "#literals"
 				}
 			]
 		},
@@ -54,11 +57,32 @@
 			"patterns": [
 				{
 					"name": "keyword.control.filska",
-					"match": "\\b(jmp|jpr|gto|hlt)\\b"
+					"begin": "\\b(jmp|jpr)\\b",
+					"end": "\\s*(,)\\s*(\\w+)",
+					"endCaptures": {
+						"1": {
+							"name": "keyword.operator"
+						},
+						"2": {
+							"name": "variable.name.filska"
+						}
+					}
 				},
 				{
-					"name": "keyword.other.filska",
-					"match": "\\b(add|sub|mul|div)\\b"
+					"name": "keyword.control.filska",
+					"match": "\\b(gto|hlt|swp|set|cmp|tmx|tmy|txm|tym|tzm|tmz|tst)\\b"
+				},
+				{
+					"name": "entity.name.function.fliska",
+					"match": "\\b(add|sub|mul|div|mod|inc|dec|sin|cos|tan|log|exp|flr|cel|rnd|neg|chr|prt|ipt|pow|sqr|asn|acs|atn)\\b"
+				}
+			]
+		},
+		"literals": {
+			"patterns": [
+				{
+					"name": "constant.numeric.fliska",
+					"match": "-?[0-9]+(\\.[0-9]*)?"
 				}
 			]
 		}
