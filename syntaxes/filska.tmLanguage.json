@@ -3,27 +3,62 @@
 	"name": "Filska",
 	"patterns": [
 		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
+			"include": "#programs"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.filska",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.filska",
-			"begin": "\"",
-			"end": "\"",
+		"programs": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.filska",
-					"match": "\\\\."
+					"include": "#subprograms"
+				},
+				{
+					"include": "#comments"
+				}
+			]
+		},
+		"subprograms": {
+			"name": "meta.subprogram.filska",
+			"begin": "\\{\\s*(\\w+)",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.name"
+				}
+			},
+			"end": "\\}",
+			"patterns": [
+				{
+					"include": "#statements"
+				}
+			]
+		},
+		"statements": {
+			"patterns": [
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#comments"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.filska",
+					"match": "\".*\\n"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.filska",
+					"match": "\\b(jmp|jpr|gto|hlt)\\b"
+				},
+				{
+					"name": "keyword.other.filska",
+					"match": "\\b(add|sub|mul|div)\\b"
 				}
 			]
 		}
