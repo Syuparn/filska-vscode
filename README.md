@@ -3,4 +3,4 @@ VSCode syntax highlighter for [Filska](https://github.com/rkneusel9/StrangeCodeB
 
 # development
 
-See [VSC Extension Quickstart](vsc-extension-quickstart.md)
+use `F5` to check whether syntax highlight works
