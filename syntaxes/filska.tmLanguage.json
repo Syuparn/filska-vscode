@@ -19,7 +19,7 @@
 		},
 		"subprograms": {
 			"name": "meta.subprogram.filska",
-			"begin": "\\{\\s*(\\w+)",
+			"begin": "\\{\\s*([\\w_!?]+)",
 			"beginCaptures": {
 				"1": {
 					"name": "variable.name.filska"
@@ -58,7 +58,7 @@
 				{
 					"name": "keyword.control.filska",
 					"begin": "\\b(jmp|jpr)\\b",
-					"end": "\\s*(,)\\s*(\\w+)",
+					"end": "(,)([\\w_!?]+)",
 					"endCaptures": {
 						"1": {
 							"name": "keyword.operator"
@@ -70,11 +70,52 @@
 				},
 				{
 					"name": "keyword.control.filska",
-					"match": "\\b(gto|hlt|swp|set|cmp|tmx|tmy|txm|tym|tzm|tmz|tst)\\b"
+					"match": "\\b(gto|hlt|swp|set|cmp|tmx|tmy|txm|tym|tzm|tmz)\\b"
+				},
+				{
+					"name": "keyword.control.filska",
+					"begin": "\\b(tst)\\b",
+					"end": "(,)([zelg])(,)(-?[0-9]+)",
+					"endCaptures": {
+						"1": {
+							"name": "keyword.operator"
+						},
+						"2": {
+							"name": "markup.heading"
+						},
+						"3": {
+							"name": "keyword.operator"
+						},
+						"4": {
+							"name": "constant.numeric.fliska"
+						}
+					}
 				},
 				{
 					"name": "entity.name.function.fliska",
-					"match": "\\b(add|sub|mul|div|mod|inc|dec|sin|cos|tan|log|exp|flr|cel|rnd|neg|chr|prt|ipt|pow|sqr|asn|acs|atn)\\b"
+					"begin": "\\b(add|sub|mul|div|mod|pow)\\b",
+					"end": "(,)([xyzm])(\\=)([xyzm])([xyzm])",
+					"endCaptures": {
+						"1": {
+							"name": "keyword.operator"
+						},
+						"2": {
+							"name": "constant.language"
+						},
+						"3": {
+							"name": "keyword.operator"
+						},
+						"4": {
+							"name": "constant.language"
+						},
+						"5": {
+							"name": "constant.language"
+						}
+					}
+				},
+				{
+					"name": "entity.name.function.fliska",
+					"match": "\\b(inc|dec|sin|cos|tan|log|exp|flr|cel|rnd|neg|chr|prt|ipt|sqr|asn|acs|atn)\\b"
 				}
 			]
 		},
