@@ -71,7 +71,18 @@
 				},
 				{
 					"name": "keyword.control.filska",
-					"match": "\\b(gto|hlt|swp|set|cmp|tmx|tmy|txm|tym|tzm|tmz)\\b"
+					"match": "\\b(gto|swp|set|cmp)\\b"
+				},
+				{
+					"name": "keyword.control.filska",
+					"begin": "\\b(tmx|tmy|txm|tym|tzm|tmz|hlt)\\b",
+					"end": "\\s",
+					"patterns": [
+						{
+							"match": "[^\\s]*",
+							"name": "invalid.illegal"
+						}
+					]
 				},
 				{
 					"name": "keyword.control.filska",
@@ -103,7 +114,14 @@
 				},
 				{
 					"name": "entity.name.function.fliska",
-					"match": "\\b(inc|dec|sin|cos|tan|log|exp|flr|cel|rnd|neg|chr|prt|ipt|sqr|asn|acs|atn)\\b"
+					"begin": "\\b(inc|dec|sin|cos|tan|log|exp|flr|cel|rnd|neg|chr|prt|ipt|sqr|asn|acs|atn)\\b",
+					"end": "\\s",
+					"patterns": [
+						{
+							"match": "[^\\s]*",
+							"name": "invalid.illegal"
+						}
+					]
 				}
 			]
 		},
