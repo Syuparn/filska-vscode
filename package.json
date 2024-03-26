@@ -3,7 +3,7 @@
   "displayName": "filska-vscode",
   "description": "VSCode syntax highlighter for Filska language in \"Strange Code\" (https://github.com/rkneusel9/StrangeCodeBook/blob/master/chapter_12/filska.py)",
   "publisher": "Syuparn",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.87.0"
   },

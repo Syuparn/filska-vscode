@@ -61,7 +61,7 @@
 					"end": "(,)([\\w_!?]+)",
 					"endCaptures": {
 						"1": {
-							"name": "keyword.operator"
+							"name": "keyword.operator.filska"
 						},
 						"2": {
 							"name": "variable.name.filska"
@@ -74,17 +74,17 @@
 				},
 				{
 					"name": "keyword.control.filska",
-					"begin": "\\b(tst)\\b",
-					"end": "(,)([zelg])(,)(-?[0-9]+)",
+					"begin": "\\b(tst)",
+					"end": "(,)([zelgn])(,)(-?[0-9]+)",
 					"endCaptures": {
 						"1": {
 							"name": "keyword.operator"
 						},
 						"2": {
-							"name": "markup.heading"
+							"name": "markup.heading.filska"
 						},
 						"3": {
-							"name": "keyword.operator"
+							"name": "keyword.operator.filska"
 						},
 						"4": {
 							"name": "constant.numeric.fliska"
@@ -92,21 +92,32 @@
 					}
 				},
 				{
+					"name": "keyword.control.filska",
+					"begin": "\\b(tst)",
+					"end": "\\s",
+					"patterns": [
+						{
+							"name": "invalid.illegal",
+							"match": ".*"
+						}
+					]
+				},
+				{
 					"name": "entity.name.function.fliska",
 					"begin": "\\b(add|sub|mul|div|mod|pow)\\b",
 					"end": "(,)([xyzm])(\\=)([xyzm])([xyzm])",
 					"endCaptures": {
 						"1": {
-							"name": "keyword.operator"
+							"name": "keyword.operator.filska"
 						},
 						"2": {
-							"name": "constant.language"
+							"name": "constant.language.filska"
 						},
 						"3": {
-							"name": "keyword.operator"
+							"name": "keyword.operator.filska"
 						},
 						"4": {
-							"name": "constant.language"
+							"name": "constant.language.filska"
 						},
 						"5": {
 							"name": "constant.language"
