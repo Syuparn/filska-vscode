@@ -58,15 +58,16 @@
 				{
 					"name": "keyword.control.filska",
 					"begin": "\\b(jmp|jpr)\\b",
-					"end": "(,)([\\w_!?]+)",
-					"endCaptures": {
-						"1": {
-							"name": "keyword.operator.filska"
+					"end": "\\s",
+					"patterns": [
+						{
+							"include": "#jmpoperands"
 						},
-						"2": {
-							"name": "variable.name.filska"
+						{
+							"match": "[^\\s]*",
+							"name": "invalid.illegal"
 						}
-					}
+					]
 				},
 				{
 					"name": "keyword.control.filska",
@@ -78,7 +79,7 @@
 					"end": "\\s",
 					"patterns": [
 						{
-							"include": "#tstpatterns"
+							"include": "#tstoperands"
 						},
 						{
 							"match": "[^\\s]*",
@@ -122,7 +123,7 @@
 				}
 			]
 		},
-		"tstpatterns": {
+		"tstoperands": {
 			"match": "(,)([zelgn])?(,)?(-?[0-9]+)?",
 			"captures": {
 				"1": {
@@ -136,6 +137,17 @@
 				},
 				"4": {
 					"name": "constant.numeric.fliska"
+				}
+			}
+		},
+		"jmpoperands": {
+			"match": "(,)([\\w_!?]+)?",
+			"captures": {
+				"1": {
+					"name": "keyword.operator.filska"
+				},
+				"2": {
+					"name": "variable.name.filska"
 				}
 			}
 		}
