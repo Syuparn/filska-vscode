@@ -74,31 +74,15 @@
 				},
 				{
 					"name": "keyword.control.filska",
-					"begin": "\\b(tst)",
-					"end": "(,)([zelgn])(,)(-?[0-9]+)",
-					"endCaptures": {
-						"1": {
-							"name": "keyword.operator"
-						},
-						"2": {
-							"name": "markup.heading.filska"
-						},
-						"3": {
-							"name": "keyword.operator.filska"
-						},
-						"4": {
-							"name": "constant.numeric.fliska"
-						}
-					}
-				},
-				{
-					"name": "keyword.control.filska",
-					"begin": "\\b(tst)",
+					"begin": "\\b(tst)\\b",
 					"end": "\\s",
 					"patterns": [
 						{
-							"name": "invalid.illegal",
-							"match": ".*"
+							"include": "#tstpatterns"
+						},
+						{
+							"match": "[^\\s]*",
+							"name": "invalid.illegal"
 						}
 					]
 				},
@@ -137,6 +121,23 @@
 					"match": "-?[0-9]+(\\.[0-9]*)?"
 				}
 			]
+		},
+		"tstpatterns": {
+			"match": "(,)([zelgn])?(,)?(-?[0-9]+)?",
+			"captures": {
+				"1": {
+					"name": "keyword.operator.filska"
+				},
+				"2": {
+					"name": "markup.heading.filska"
+				},
+				"3": {
+					"name": "keyword.operator.filska"
+				},
+				"4": {
+					"name": "constant.numeric.fliska"
+				}
+			}
 		}
 	},
 	"scopeName": "source.filska"
