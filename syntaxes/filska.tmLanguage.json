@@ -90,24 +90,16 @@
 				{
 					"name": "entity.name.function.fliska",
 					"begin": "\\b(add|sub|mul|div|mod|pow)\\b",
-					"end": "(,)([xyzm])(\\=)([xyzm])([xyzm])",
-					"endCaptures": {
-						"1": {
-							"name": "keyword.operator.filska"
+					"end": "\\s",
+					"patterns": [
+						{
+							"include": "#binaryoperands"
 						},
-						"2": {
-							"name": "constant.language.filska"
-						},
-						"3": {
-							"name": "keyword.operator.filska"
-						},
-						"4": {
-							"name": "constant.language.filska"
-						},
-						"5": {
-							"name": "constant.language"
+						{
+							"match": "[^\\s]*",
+							"name": "invalid.illegal"
 						}
-					}
+					]
 				},
 				{
 					"name": "entity.name.function.fliska",
@@ -148,6 +140,26 @@
 				},
 				"2": {
 					"name": "variable.name.filska"
+				}
+			}
+		},
+		"binaryoperands": {
+			"match": "(,)([xyzm])?(\\=)?([xyzm])?([xyzm])?",
+			"captures": {
+				"1": {
+					"name": "keyword.operator.filska"
+				},
+				"2": {
+					"name": "constant.language.filska"
+				},
+				"3": {
+					"name": "keyword.operator.filska"
+				},
+				"4": {
+					"name": "constant.language.filska"
+				},
+				"5": {
+					"name": "constant.language"
 				}
 			}
 		}
