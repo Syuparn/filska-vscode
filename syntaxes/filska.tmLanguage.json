@@ -71,7 +71,32 @@
 				},
 				{
 					"name": "keyword.control.filska",
-					"match": "\\b(gto|swp|set|cmp)\\b"
+					"match": "\\b(gto|set|cmp)\\b"
+				},
+				{
+					"name": "keyword.control.filska",
+					"begin": "\\b(swp)\\b",
+					"end": "\\s",
+					"patterns": [
+						{
+							"match": "(,)([xyzm])?([xyzm])?",
+							"captures": {
+								"1": {
+									"name": "keyword.operator.filska"
+								},
+								"2": {
+									"name": "constant.language.filska"
+								},
+								"3": {
+									"name": "constant.language.filska"
+								}
+							}
+						},
+						{
+							"match": "[^\\s]*",
+							"name": "invalid.illegal"
+						}
+					]
 				},
 				{
 					"name": "keyword.control.filska",
