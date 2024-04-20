@@ -71,7 +71,17 @@
 				},
 				{
 					"name": "keyword.control.filska",
-					"match": "\\b(gto|set|cmp)\\b"
+					"begin": "\\b(gto|set|cmp)\\b",
+					"end": "\\s",
+					"patterns": [
+						{
+							"include": "#unaryoperands"
+						},
+						{
+							"match": "[^\\s]*",
+							"name": "invalid.illegal"
+						}
+					]
 				},
 				{
 					"name": "keyword.control.filska",
@@ -171,6 +181,17 @@
 					"name": "keyword.operator.filska"
 				},
 				"4": {
+					"name": "constant.numeric.fliska"
+				}
+			}
+		},
+		"unaryoperands": {
+			"match": "(,)(-?[0-9]+(\\.[0-9]*)?(e[+-][0-9]+)?)?",
+			"captures": {
+				"1": {
+					"name": "keyword.operator.filska"
+				},
+				"2": {
 					"name": "constant.numeric.fliska"
 				}
 			}
